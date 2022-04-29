@@ -52,10 +52,10 @@ class Form extends React.Component {
 	handleSubmit = async (event) => {
   	event.preventDefault();
     const resp = await axios.get(`https://api.github.com/users/${this.state.userName}`);
- // const resp = await axios.get(`https://api.postcodes.io/postcodes/LS28 7RL`);
+  const addressDetails =  await axios.get(`https://api.postcodes.io/postcodes/LS28 7RL`);
 
- 
     console.log(resp);
+    console.log(addressDetails);
     this.props.onSubmit(resp.data);
     this.setState({ userName: '' });
   };
